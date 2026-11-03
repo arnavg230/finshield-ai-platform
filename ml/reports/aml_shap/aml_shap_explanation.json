@@ -1,0 +1,23 @@
+{
+  "aml_score": 0.5175,
+  "risk_level": "MEDIUM",
+  "rule_score": 0.44999999999999996,
+  "behavior_score": 0.9,
+  "network_score": 0.0,
+  "triggered_rules": [
+    "HIGH_AMOUNT",
+    "SUDDEN_ACTIVITY_SPIKE"
+  ],
+  "reasons": [
+    "Transaction amount is unusually high.",
+    "Current transaction is much larger than the sender's historical average.",
+    "Transaction is at least five times the historical average.",
+    "No strong relationship anomaly was found in the supplied history."
+  ],
+  "shap_contributions": {
+    "Rule score": 0.20249999999999996,
+    "Behavior score": 0.315,
+    "Network score": 0.0
+  },
+  "text_interpretation": "FINSHIELD AI - AML INVESTIGATION EXPLANATION\n====================================================\nAML score: 0.5175 / 1.0000\nRisk level: MEDIUM\n\nSHAP component contributions:\n- Behavior score: increased the AML score (SHAP contribution: +0.3150)\n- Rule score: increased the AML score (SHAP contribution: +0.2025)\n- Network score: had no effect on the AML score (SHAP contribution: +0.0000)\n\nTriggered rules:\n- HIGH_AMOUNT\n- SUDDEN_ACTIVITY_SPIKE\n\nInvestigation reasons:\n- Transaction amount is unusually high.\n- Current transaction is much larger than the sender's historical average.\n- Transaction is at least five times the historical average.\n- No strong relationship anomaly was found in the supplied history.\n\nImportant:\nSHAP explains the contribution of the three score components.\nIt does not independently establish that a transaction is laundering.\nThe results require human investigation."
+}

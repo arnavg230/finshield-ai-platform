@@ -1,0 +1,24 @@
+FINSHIELD AI - AML INVESTIGATION EXPLANATION
+====================================================
+AML score: 0.5175 / 1.0000
+Risk level: MEDIUM
+
+SHAP component contributions:
+- Behavior score: increased the AML score (SHAP contribution: +0.3150)
+- Rule score: increased the AML score (SHAP contribution: +0.2025)
+- Network score: had no effect on the AML score (SHAP contribution: +0.0000)
+
+Triggered rules:
+- HIGH_AMOUNT
+- SUDDEN_ACTIVITY_SPIKE
+
+Investigation reasons:
+- Transaction amount is unusually high.
+- Current transaction is much larger than the sender's historical average.
+- Transaction is at least five times the historical average.
+- No strong relationship anomaly was found in the supplied history.
+
+Important:
+SHAP explains the contribution of the three score components.
+It does not independently establish that a transaction is laundering.
+The results require human investigation.

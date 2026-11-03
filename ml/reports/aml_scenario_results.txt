@@ -1,0 +1,727 @@
+TEST 01 - Normal low-value transaction [PASS]
+Sender/receiver: SENDER_01 -> RECEIVER_01
+Amount: 500.00 USD; history rows: 0
+AML score: 0.0700; risk: LOW
+Rule/behavior/network: 0.00 / 0.20 / 0.00
+Triggered rules: None
+Reasons: No historical activity was supplied for comparison. | No strong relationship anomaly was found in the supplied history.
+Investigation summary: {'summary': 'Transaction SENDER_01 -> RECEIVER_01 has AML score 0.07 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_01
+Receiver ID: RECEIVER_01
+Transaction amount: 500.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.0700 (7.00%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.00
+No configured AML rules were triggered.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.20
+Historical transactions for sender: 0
+Current transaction amount: 500.00
+No previous transactions for this sender were supplied. The behavior assessment is therefore limited.
+Behavior observations:
+- No historical activity was supplied for comparison.
+
+NETWORK ANALYSIS
+Network score: 0.00
+Sender: SENDER_01
+Receiver: RECEIVER_01
+Network observations:
+- No strong relationship anomaly was found in the supplied history.
+Network analysis is based only on the current transaction because no transaction history was supplied.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 02 - Just below high-amount threshold [PASS]
+Sender/receiver: SENDER_02 -> RECEIVER_02
+Amount: 99999.00 USD; history rows: 0
+AML score: 0.1600; risk: LOW
+Rule/behavior/network: 0.20 / 0.20 / 0.00
+Triggered rules: NEW_RECEIVER_LARGE_AMOUNT
+Reasons: Large transfer to a receiver not previously seen in the history. | No historical activity was supplied for comparison. | No strong relationship anomaly was found in the supplied history.
+Investigation summary: {'summary': 'Transaction SENDER_02 -> RECEIVER_02 has AML score 0.16 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_02
+Receiver ID: RECEIVER_02
+Transaction amount: 99,999.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.1600 (16.00%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.20
+Triggered rules:
+- Large transfer to a new receiver (NEW_RECEIVER_LARGE_AMOUNT): The sender transferred a large amount to a receiver not found in the supplied transaction history.
+Rule observations:
+- Large transfer to a receiver not previously seen in the history.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.20
+Historical transactions for sender: 0
+Current transaction amount: 99,999.00
+No previous transactions for this sender were supplied. The behavior assessment is therefore limited.
+Behavior observations:
+- No historical activity was supplied for comparison.
+
+NETWORK ANALYSIS
+Network score: 0.00
+Sender: SENDER_02
+Receiver: RECEIVER_02
+Network observations:
+- No strong relationship anomaly was found in the supplied history.
+Network analysis is based only on the current transaction because no transaction history was supplied.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 03 - At high-amount threshold [PASS]
+Sender/receiver: SENDER_03 -> RECEIVER_03
+Amount: 100000.00 USD; history rows: 0
+AML score: 0.2950; risk: LOW
+Rule/behavior/network: 0.50 / 0.20 / 0.00
+Triggered rules: HIGH_AMOUNT, NEW_RECEIVER_LARGE_AMOUNT
+Reasons: Transaction amount is unusually high. | Large transfer to a receiver not previously seen in the history. | No historical activity was supplied for comparison. | No strong relationship anomaly was found in the supplied history.
+Investigation summary: {'summary': 'Transaction SENDER_03 -> RECEIVER_03 has AML score 0.29 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_03
+Receiver ID: RECEIVER_03
+Transaction amount: 100,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.2950 (29.50%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.50
+Triggered rules:
+- High transaction amount (HIGH_AMOUNT): The transaction amount crossed the configured high-amount threshold.
+- Large transfer to a new receiver (NEW_RECEIVER_LARGE_AMOUNT): The sender transferred a large amount to a receiver not found in the supplied transaction history.
+Rule observations:
+- Transaction amount is unusually high.
+- Large transfer to a receiver not previously seen in the history.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.20
+Historical transactions for sender: 0
+Current transaction amount: 100,000.00
+No previous transactions for this sender were supplied. The behavior assessment is therefore limited.
+Behavior observations:
+- No historical activity was supplied for comparison.
+
+NETWORK ANALYSIS
+Network score: 0.00
+Sender: SENDER_03
+Receiver: RECEIVER_03
+Network observations:
+- No strong relationship anomaly was found in the supplied history.
+Network analysis is based only on the current transaction because no transaction history was supplied.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 04 - New receiver below large-transfer threshold [PASS]
+Sender/receiver: SENDER_04 -> RECEIVER_04
+Amount: 49999.00 USD; history rows: 2
+AML score: 0.0000; risk: LOW
+Rule/behavior/network: 0.00 / 0.00 / 0.00
+Triggered rules: None
+Reasons: Transaction is broadly consistent with the supplied history. | No strong relationship anomaly was found in the supplied history.
+Investigation summary: {'summary': 'Transaction SENDER_04 -> RECEIVER_04 has AML score 0.00 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_04
+Receiver ID: RECEIVER_04
+Transaction amount: 49,999.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.0000 (0.00%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.00
+No configured AML rules were triggered.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.00
+Historical transactions for sender: 2
+Current transaction amount: 49,999.00
+Historical average transaction amount: 30,000.00
+Current amount / historical average: 1.67x
+Behavior observations:
+- Transaction is broadly consistent with the supplied history.
+
+NETWORK ANALYSIS
+Network score: 0.00
+Sender: SENDER_04
+Receiver: RECEIVER_04
+Network observations:
+- No strong relationship anomaly was found in the supplied history.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 05 - Large transfer to a new receiver [PASS]
+Sender/receiver: SENDER_05 -> RECEIVER_05
+Amount: 60000.00 USD; history rows: 2
+AML score: 0.4725; risk: MEDIUM
+Rule/behavior/network: 0.35 / 0.90 / 0.00
+Triggered rules: NEW_RECEIVER_LARGE_AMOUNT, SUDDEN_ACTIVITY_SPIKE
+Reasons: Large transfer to a receiver not previously seen in the history. | Current transaction is much larger than the sender's historical average. | Transaction is at least five times the historical average. | No strong relationship anomaly was found in the supplied history.
+Investigation summary: {'summary': 'Transaction SENDER_05 -> RECEIVER_05 has AML score 0.47 and risk level MEDIUM.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": true, "channels": ["dashboard", "email"], "message": "FinShield AML Alert: MEDIUM risk transaction. AML score=0.47. Large transfer to a receiver not previously seen in the history. Current transaction is much larger than the sender's historical average. Transaction is at least five times the historical average."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_05
+Receiver ID: RECEIVER_05
+Transaction amount: 60,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.4725 (47.25%)
+Risk level: MEDIUM
+
+RULE-BASED ANALYSIS
+Rule score: 0.35
+Triggered rules:
+- Large transfer to a new receiver (NEW_RECEIVER_LARGE_AMOUNT): The sender transferred a large amount to a receiver not found in the supplied transaction history.
+- Sudden increase in transaction amount (SUDDEN_ACTIVITY_SPIKE): The current transaction is significantly larger than the sender's historical average transaction amount.
+Rule observations:
+- Large transfer to a receiver not previously seen in the history.
+- Current transaction is much larger than the sender's historical average.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.90
+Historical transactions for sender: 2
+Current transaction amount: 60,000.00
+Historical average transaction amount: 10,000.00
+Current amount / historical average: 6.00x
+Behavior observations:
+- Transaction is at least five times the historical average.
+
+NETWORK ANALYSIS
+Network score: 0.00
+Sender: SENDER_05
+Receiver: RECEIVER_05
+Network observations:
+- No strong relationship anomaly was found in the supplied history.
+
+FINAL INTERPRETATION
+The transaction has a medium AML risk score. Review the listed observations and gather additional context if needed.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 06 - Four transactions within 24 hours [PASS]
+Sender/receiver: SENDER_06 -> RECEIVER_06
+Amount: 1000.00 USD; history rows: 3
+AML score: 0.0000; risk: LOW
+Rule/behavior/network: 0.00 / 0.00 / 0.00
+Triggered rules: None
+Reasons: Transaction is broadly consistent with the supplied history. | No strong relationship anomaly was found in the supplied history.
+Investigation summary: {'summary': 'Transaction SENDER_06 -> RECEIVER_06 has AML score 0.00 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_06
+Receiver ID: RECEIVER_06
+Transaction amount: 1,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.0000 (0.00%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.00
+No configured AML rules were triggered.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.00
+Historical transactions for sender: 3
+Current transaction amount: 1,000.00
+Historical average transaction amount: 1,000.00
+Current amount / historical average: 1.00x
+Behavior observations:
+- Transaction is broadly consistent with the supplied history.
+
+NETWORK ANALYSIS
+Network score: 0.00
+Sender: SENDER_06
+Receiver: RECEIVER_06
+Network observations:
+- No strong relationship anomaly was found in the supplied history.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 07 - Five transactions within 24 hours [PASS]
+Sender/receiver: SENDER_07 -> RECEIVER_07
+Amount: 1000.00 USD; history rows: 4
+AML score: 0.2325; risk: LOW
+Rule/behavior/network: 0.25 / 0.00 / 0.60
+Triggered rules: HIGH_FREQUENCY
+Reasons: Too many transactions were made in a short time window. | Transaction is broadly consistent with the supplied history. | Sender is connected to many transactions. | Sender has transferred money to multiple different receivers.
+Investigation summary: {'summary': 'Transaction SENDER_07 -> RECEIVER_07 has AML score 0.23 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.', 'Check transaction timing for rapid movement of funds.', 'Inspect connected accounts for possible transaction chains.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_07
+Receiver ID: RECEIVER_07
+Transaction amount: 1,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.2325 (23.25%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.25
+Triggered rules:
+- High transaction frequency (HIGH_FREQUENCY): The sender made several transactions within the configured time window.
+Rule observations:
+- Too many transactions were made in a short time window.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.00
+Historical transactions for sender: 4
+Current transaction amount: 1,000.00
+Historical average transaction amount: 1,000.00
+Current amount / historical average: 1.00x
+Behavior observations:
+- Transaction is broadly consistent with the supplied history.
+
+NETWORK ANALYSIS
+Network score: 0.60
+Sender: SENDER_07
+Receiver: RECEIVER_07
+Network observations:
+- Sender is connected to many transactions.
+- Sender has transferred money to multiple different receivers.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 08 - Behaviour ratio 2x [PASS]
+Sender/receiver: SENDER_08 -> RECEIVER_08
+Amount: 2000.00 USD; history rows: 1
+AML score: 0.1575; risk: LOW
+Rule/behavior/network: 0.00 / 0.45 / 0.00
+Triggered rules: None
+Reasons: Transaction is at least twice the historical average. | No strong relationship anomaly was found in the supplied history.
+Investigation summary: {'summary': 'Transaction SENDER_08 -> RECEIVER_08 has AML score 0.16 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_08
+Receiver ID: RECEIVER_08
+Transaction amount: 2,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.1575 (15.75%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.00
+No configured AML rules were triggered.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.45
+Historical transactions for sender: 1
+Current transaction amount: 2,000.00
+Historical average transaction amount: 1,000.00
+Current amount / historical average: 2.00x
+Behavior observations:
+- Transaction is at least twice the historical average.
+
+NETWORK ANALYSIS
+Network score: 0.00
+Sender: SENDER_08
+Receiver: RECEIVER_08
+Network observations:
+- No strong relationship anomaly was found in the supplied history.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 09 - Behaviour ratio 3x [PASS]
+Sender/receiver: SENDER_09 -> RECEIVER_09
+Amount: 3000.00 USD; history rows: 1
+AML score: 0.3125; risk: LOW
+Rule/behavior/network: 0.15 / 0.70 / 0.00
+Triggered rules: SUDDEN_ACTIVITY_SPIKE
+Reasons: Current transaction is much larger than the sender's historical average. | Transaction is at least three times the historical average. | No strong relationship anomaly was found in the supplied history.
+Investigation summary: {'summary': 'Transaction SENDER_09 -> RECEIVER_09 has AML score 0.31 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_09
+Receiver ID: RECEIVER_09
+Transaction amount: 3,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.3125 (31.25%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.15
+Triggered rules:
+- Sudden increase in transaction amount (SUDDEN_ACTIVITY_SPIKE): The current transaction is significantly larger than the sender's historical average transaction amount.
+Rule observations:
+- Current transaction is much larger than the sender's historical average.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.70
+Historical transactions for sender: 1
+Current transaction amount: 3,000.00
+Historical average transaction amount: 1,000.00
+Current amount / historical average: 3.00x
+Behavior observations:
+- Transaction is at least three times the historical average.
+
+NETWORK ANALYSIS
+Network score: 0.00
+Sender: SENDER_09
+Receiver: RECEIVER_09
+Network observations:
+- No strong relationship anomaly was found in the supplied history.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 10 - Behaviour ratio 5x [PASS]
+Sender/receiver: SENDER_10 -> RECEIVER_10
+Amount: 5000.00 USD; history rows: 1
+AML score: 0.3825; risk: LOW
+Rule/behavior/network: 0.15 / 0.90 / 0.00
+Triggered rules: SUDDEN_ACTIVITY_SPIKE
+Reasons: Current transaction is much larger than the sender's historical average. | Transaction is at least five times the historical average. | No strong relationship anomaly was found in the supplied history.
+Investigation summary: {'summary': 'Transaction SENDER_10 -> RECEIVER_10 has AML score 0.38 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_10
+Receiver ID: RECEIVER_10
+Transaction amount: 5,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.3825 (38.25%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.15
+Triggered rules:
+- Sudden increase in transaction amount (SUDDEN_ACTIVITY_SPIKE): The current transaction is significantly larger than the sender's historical average transaction amount.
+Rule observations:
+- Current transaction is much larger than the sender's historical average.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.90
+Historical transactions for sender: 1
+Current transaction amount: 5,000.00
+Historical average transaction amount: 1,000.00
+Current amount / historical average: 5.00x
+Behavior observations:
+- Transaction is at least five times the historical average.
+
+NETWORK ANALYSIS
+Network score: 0.00
+Sender: SENDER_10
+Receiver: RECEIVER_10
+Network observations:
+- No strong relationship anomaly was found in the supplied history.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 11 - Sender connected to multiple receivers [PASS]
+Sender/receiver: SENDER_11 -> RECEIVER_11_NEW
+Amount: 2000.00 USD; history rows: 5
+AML score: 0.2775; risk: LOW
+Rule/behavior/network: 0.00 / 0.45 / 0.60
+Triggered rules: None
+Reasons: Transaction is at least twice the historical average. | Sender is connected to many transactions. | Sender has transferred money to multiple different receivers.
+Investigation summary: {'summary': 'Transaction SENDER_11 -> RECEIVER_11_NEW has AML score 0.28 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.', 'Inspect connected accounts for possible transaction chains.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_11
+Receiver ID: RECEIVER_11_NEW
+Transaction amount: 2,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.2775 (27.75%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.00
+No configured AML rules were triggered.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.45
+Historical transactions for sender: 5
+Current transaction amount: 2,000.00
+Historical average transaction amount: 1,000.00
+Current amount / historical average: 2.00x
+Behavior observations:
+- Transaction is at least twice the historical average.
+
+NETWORK ANALYSIS
+Network score: 0.60
+Sender: SENDER_11
+Receiver: RECEIVER_11_NEW
+Network observations:
+- Sender is connected to many transactions.
+- Sender has transferred money to multiple different receivers.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 12 - Receiver connected to multiple senders [PASS]
+Sender/receiver: SENDER_12 -> RECEIVER_12
+Amount: 2000.00 USD; history rows: 5
+AML score: 0.1300; risk: LOW
+Rule/behavior/network: 0.00 / 0.20 / 0.30
+Triggered rules: None
+Reasons: No historical activity was supplied for comparison. | Receiver is connected to many incoming transactions.
+Investigation summary: {'summary': 'Transaction SENDER_12 -> RECEIVER_12 has AML score 0.13 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_12
+Receiver ID: RECEIVER_12
+Transaction amount: 2,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.1300 (13.00%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.00
+No configured AML rules were triggered.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.20
+Historical transactions for sender: 0
+Current transaction amount: 2,000.00
+No previous transactions for this sender were supplied. The behavior assessment is therefore limited.
+Behavior observations:
+- No historical activity was supplied for comparison.
+
+NETWORK ANALYSIS
+Network score: 0.30
+Sender: SENDER_12
+Receiver: RECEIVER_12
+Network observations:
+- Receiver is connected to many incoming transactions.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 13 - Reciprocal transaction [PASS]
+Sender/receiver: SENDER_13 -> RECEIVER_13
+Amount: 5000.00 USD; history rows: 1
+AML score: 0.1500; risk: LOW
+Rule/behavior/network: 0.00 / 0.20 / 0.40
+Triggered rules: None
+Reasons: No historical activity was supplied for comparison. | A reciprocal transfer relationship was observed.
+Investigation summary: {'summary': 'Transaction SENDER_13 -> RECEIVER_13 has AML score 0.15 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_13
+Receiver ID: RECEIVER_13
+Transaction amount: 5,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.1500 (15.00%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.00
+No configured AML rules were triggered.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.20
+Historical transactions for sender: 0
+Current transaction amount: 5,000.00
+No previous transactions for this sender were supplied. The behavior assessment is therefore limited.
+Behavior observations:
+- No historical activity was supplied for comparison.
+
+NETWORK ANALYSIS
+Network score: 0.40
+Sender: SENDER_13
+Receiver: RECEIVER_13
+Network observations:
+- A reciprocal transfer relationship was observed.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 14 - Combined high-risk indicators [PASS]
+Sender/receiver: SENDER_14 -> RECEIVER_14_NEW
+Amount: 150000.00 USD; history rows: 5
+AML score: 0.8400; risk: HIGH
+Rule/behavior/network: 0.90 / 0.90 / 0.60
+Triggered rules: HIGH_AMOUNT, HIGH_FREQUENCY, NEW_RECEIVER_LARGE_AMOUNT, SUDDEN_ACTIVITY_SPIKE
+Reasons: Transaction amount is unusually high. | Too many transactions were made in a short time window. | Large transfer to a receiver not previously seen in the history. | Current transaction is much larger than the sender's historical average. | Transaction is at least five times the historical average. | Sender is connected to many transactions. | Sender has transferred money to multiple different receivers.
+Investigation summary: {'summary': 'Transaction SENDER_14 -> RECEIVER_14_NEW has AML score 0.84 and risk level HIGH.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.', 'Check transaction timing for rapid movement of funds.', 'Inspect connected accounts for possible transaction chains.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": true, "channels": ["dashboard", "email"], "message": "FinShield AML Alert: HIGH risk transaction. AML score=0.84. Transaction amount is unusually high. Too many transactions were made in a short time window. Large transfer to a receiver not previously seen in the history."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_14
+Receiver ID: RECEIVER_14_NEW
+Transaction amount: 150,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.8400 (84.00%)
+Risk level: HIGH
+
+RULE-BASED ANALYSIS
+Rule score: 0.90
+Triggered rules:
+- High transaction amount (HIGH_AMOUNT): The transaction amount crossed the configured high-amount threshold.
+- High transaction frequency (HIGH_FREQUENCY): The sender made several transactions within the configured time window.
+- Large transfer to a new receiver (NEW_RECEIVER_LARGE_AMOUNT): The sender transferred a large amount to a receiver not found in the supplied transaction history.
+- Sudden increase in transaction amount (SUDDEN_ACTIVITY_SPIKE): The current transaction is significantly larger than the sender's historical average transaction amount.
+Rule observations:
+- Transaction amount is unusually high.
+- Too many transactions were made in a short time window.
+- Large transfer to a receiver not previously seen in the history.
+- Current transaction is much larger than the sender's historical average.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.90
+Historical transactions for sender: 5
+Current transaction amount: 150,000.00
+Historical average transaction amount: 1,000.00
+Current amount / historical average: 150.00x
+Behavior observations:
+- Transaction is at least five times the historical average.
+
+NETWORK ANALYSIS
+Network score: 0.60
+Sender: SENDER_14
+Receiver: RECEIVER_14_NEW
+Network observations:
+- Sender is connected to many transactions.
+- Sender has transferred money to multiple different receivers.
+
+FINAL INTERPRETATION
+The transaction has a high AML risk score under the current prototype. It should be prioritized for human review.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+TEST 15 - Stable customer activity [PASS]
+Sender/receiver: SENDER_15 -> RECEIVER_15
+Amount: 1000.00 USD; history rows: 10
+AML score: 0.1550; risk: LOW
+Rule/behavior/network: 0.00 / 0.10 / 0.60
+Triggered rules: None
+Reasons: Account has high recent transaction activity. | Sender is connected to many transactions. | Receiver is connected to many incoming transactions.
+Investigation summary: {'summary': 'Transaction SENDER_15 -> RECEIVER_15 has AML score 0.15 and risk level LOW.', 'investigation_steps': ["Review the customer's recent transaction history.", 'Verify the source and purpose of funds.', 'Review linked accounts and counterparties.', 'Inspect connected accounts for possible transaction chains.'], 'disclaimer': 'This assistant supports investigation and does not determine that a crime occurred.'}
+Notification: {"should_notify": false, "channels": [], "message": "No alert notification required."}
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: Not provided
+Sender ID: SENDER_15
+Receiver ID: RECEIVER_15
+Transaction amount: 1,000.00
+Timestamp: 2026/10/29 10:00
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.1550 (15.50%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.00
+No configured AML rules were triggered.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.10
+Historical transactions for sender: 10
+Current transaction amount: 1,000.00
+Historical average transaction amount: 1,000.00
+Current amount / historical average: 1.00x
+Behavior observations:
+- Account has high recent transaction activity.
+
+NETWORK ANALYSIS
+Network score: 0.60
+Sender: SENDER_15
+Receiver: RECEIVER_15
+Network observations:
+- Sender is connected to many transactions.
+- Receiver is connected to many incoming transactions.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.
+
+------------------------------------------------------------------------------
+
+SUMMARY: 15/15 passed; 0/15 failed.
+CSV report: C:\Users\LENOVO\Downloads\finshield_ai\finshield_ai\code\ml\reports\aml_scenario_results.csv
+Text report: C:\Users\LENOVO\Downloads\finshield_ai\finshield_ai\code\ml\reports\aml_scenario_results.txt

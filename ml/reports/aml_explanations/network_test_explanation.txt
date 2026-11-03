@@ -1,0 +1,40 @@
+DETAILED AML TRANSACTION EXPLANATION
+==========================================
+Transaction ID: TXN_NETWORK_001
+Sender ID: C800
+Receiver ID: C900
+Transaction amount: 20,000.00
+Timestamp: 2026/10/27 14:30
+
+OVERALL RISK ASSESSMENT
+AML risk score: 0.3125 (31.25%)
+Risk level: LOW
+
+RULE-BASED ANALYSIS
+Rule score: 0.25
+Triggered rules:
+- High transaction frequency (HIGH_FREQUENCY): The sender made several transactions within the configured time window.
+Rule observations:
+- Too many transactions were made in a short time window.
+
+BEHAVIOR ANALYSIS
+Behavior score: 0.00
+Historical transactions for sender: 4
+Current transaction amount: 20,000.00
+Historical average transaction amount: 19,500.00
+Current amount / historical average: 1.03x
+Behavior observations:
+- Transaction is broadly consistent with the supplied history.
+
+NETWORK ANALYSIS
+Network score: 1.00
+Sender: C800
+Receiver: C900
+Network observations:
+- Sender is connected to many transactions.
+- Receiver is connected to many incoming transactions.
+- A reciprocal transfer relationship was observed.
+
+FINAL INTERPRETATION
+The transaction has a low AML risk score under the current prototype. This does not guarantee that the transaction is safe.
+Important: This is a rule-based prototype assessment, not proof of money laundering. A qualified investigator should review the available evidence before making a decision.

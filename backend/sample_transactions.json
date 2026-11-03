@@ -1,0 +1,62 @@
+[
+  {
+    "_label": "Fraud pattern: TRANSFER that empties the sender account",
+    "step": 1,
+    "type": "TRANSFER",
+    "amount": 181000.0,
+    "nameOrig": "C1231006815",
+    "oldbalanceOrg": 181000.0,
+    "newbalanceOrig": 0.0,
+    "nameDest": "C1666544295",
+    "oldbalanceDest": 0.0,
+    "newbalanceDest": 0.0
+  },
+  {
+    "_label": "Fraud pattern: CASH_OUT of the full balance",
+    "step": 1,
+    "type": "CASH_OUT",
+    "amount": 229133.94,
+    "nameOrig": "C1305486145",
+    "oldbalanceOrg": 229133.94,
+    "newbalanceOrig": 0.0,
+    "nameDest": "C1590550415",
+    "oldbalanceDest": 0.0,
+    "newbalanceDest": 0.0
+  },
+  {
+    "_label": "Normal: small retail payment",
+    "step": 1,
+    "type": "PAYMENT",
+    "amount": 9839.64,
+    "nameOrig": "C1231006815",
+    "oldbalanceOrg": 170136.0,
+    "newbalanceOrig": 160296.36,
+    "nameDest": "M1979787155",
+    "oldbalanceDest": 0.0,
+    "newbalanceDest": 0.0
+  },
+  {
+    "_label": "Normal: cash deposit",
+    "step": 9,
+    "type": "CASH_IN",
+    "amount": 36191.0,
+    "nameOrig": "C1231006815",
+    "oldbalanceOrg": 90000.0,
+    "newbalanceOrig": 126191.0,
+    "nameDest": "C1590550415",
+    "oldbalanceDest": 500000.0,
+    "newbalanceDest": 463809.0
+  },
+  {
+    "_label": "Normal: small transfer between known accounts",
+    "step": 50,
+    "type": "TRANSFER",
+    "amount": 5000.0,
+    "nameOrig": "C1231006815",
+    "oldbalanceOrg": 900000.0,
+    "newbalanceOrig": 895000.0,
+    "nameDest": "C1666544295",
+    "oldbalanceDest": 200000.0,
+    "newbalanceDest": 205000.0
+  }
+]

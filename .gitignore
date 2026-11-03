@@ -1,0 +1,22 @@
+# Local secrets and databases
+backend/.env
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+
+# Python environments and generated files
+**/__pycache__/
+**/*.py[cod]
+backend/.venv/
+backend/venv/
+**/.pytest_cache/
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+
+# Logs, editor state, and generated tabular test reports
+**/*.log
+**/.idea/
+**/.vscode/
+ml/reports/*.csv
