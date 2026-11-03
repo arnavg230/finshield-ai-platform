@@ -6,15 +6,26 @@ FinShield AI is a local web application for transaction screening and AML invest
 
 - Python 3.10 or 3.11
 - Node.js 18 or newer (npm is included)
+- PostgreSQL installed and running locally
 - Windows, macOS, or Linux
 
-The default local setup uses SQLite, so PostgreSQL is not required.
+The backend stores users, transactions, alerts, and cases in PostgreSQL.
 
 ## Run locally on Windows
 
 Open **two PowerShell windows** from the project directory.
 
-### 1. Set up and start the backend
+### 1. Create the PostgreSQL database
+
+Start PostgreSQL, then create an empty database. For example, in PowerShell:
+
+```powershell
+psql -U postgres -c "CREATE DATABASE finshield;"
+```
+
+You can also create a database named `finshield` in pgAdmin.
+
+### 2. Set up and start the backend
 
 In the first window:
 
@@ -26,7 +37,13 @@ python -m pip install --upgrade pip
 Copy-Item .env.example .env
 ```
 
-Open `backend/.env` and replace `SECRET_KEY` with a long random value. The example config uses a local SQLite database. Then install dependencies and create the database tables and demo users:
+Open `backend/.env` and set `DATABASE_URL` to your PostgreSQL username and password, for example:
+
+```text
+DATABASE_URL=postgresql+psycopg2://postgres:YOUR_POSTGRES_PASSWORD@localhost:5432/finshield
+```
+
+Also replace `SECRET_KEY` with a long random value. Then install dependencies and create the database tables and demo users:
 
 ```powershell
 pip install -r requirements.txt
@@ -36,7 +53,7 @@ uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 
 The backend health endpoint is <http://127.0.0.1:8000/health> and the API docs are at <http://127.0.0.1:8000/docs>.
 
-### 2. Set up and start the frontend
+### 3. Set up and start the frontend
 
 In the second PowerShell window:
 
@@ -61,7 +78,13 @@ These accounts are for local demonstration. The seed command leaves existing acc
 
 ## Run locally on macOS or Linux
 
-In the first terminal:
+Start PostgreSQL and create the database:
+
+```bash
+createdb -U postgres finshield
+```
+
+In the first terminal, set up the backend:
 
 ```bash
 cd backend
@@ -71,7 +94,7 @@ python -m pip install --upgrade pip
 cp .env.example .env
 ```
 
-Set a private `SECRET_KEY` in `backend/.env`, then:
+Set `DATABASE_URL` to your PostgreSQL username and password and set a private `SECRET_KEY` in `backend/.env`, then:
 
 ```bash
 pip install -r requirements.txt
@@ -103,6 +126,7 @@ The PaySim runner checks all three saved models and writes a CSV with their pred
 ## Troubleshooting
 
 - **The UI says the API is unavailable:** confirm the backend is running on port `8000`, then check `/health`.
+- **The backend cannot connect to PostgreSQL:** confirm the PostgreSQL service is running, the `finshield` database exists, and `DATABASE_URL` in `backend/.env` has the right username and password.
 - **The ML models do not load:** make sure the files in `ml/models/` are present. The backend finds them in that folder by default.
 - **The frontend cannot reach the backend:** start Vite on port `5173`; its development proxy forwards `/api` and `/health` to `127.0.0.1:8000`.
 - **PowerShell blocks virtual-environment activation:** use `\.venv\Scripts\python.exe -m pip install -r requirements.txt` and `\.venv\Scripts\python.exe -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000` from `backend` without activating the environment.
@@ -115,4 +139,4 @@ frontend/  React/Vite web interface
 ml/        AML and PaySim analysis code, model files, and test reports
 ```
 
-`backend/.env` and the local database are machine-specific and should not be committed. The tracked `.env.example` contains only local development defaults.
+`backend/.env` contains machine-specific database credentials and should not be committed. The tracked `.env.example` is a template; update its PostgreSQL password before starting the backend.
